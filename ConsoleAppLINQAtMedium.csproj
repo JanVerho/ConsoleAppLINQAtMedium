@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ClassLibraryCountries\ClassLibraryCountries.csproj" />
+    <ProjectReference Include="..\ClassLibraryExemptions\ClassLibraryExceptions.csproj" />
     <ProjectReference Include="..\ClassLibraryStringAndIntegerExtensions\ClassLibraryStringAndIntegerExtensions.csproj" />
   </ItemGroup>
 

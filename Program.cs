@@ -1,4 +1,5 @@
 ﻿using ClassLibraryCountries;
+using ClassLibraryExceptions;
 using ClassLibraryStringAndIntegerExtensions;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace ConsoleAppLINQAtMedium
     {
         private static void Main(string[] args)
         {
+            //Make own static int function -
             Func<int, int> sqaure = x => x * x;
             Func<int, int, int> substract = (x, y) => x - y;
 
@@ -61,6 +63,27 @@ namespace ConsoleAppLINQAtMedium
             foreach (var land in new[] { land1, land2 /*, land3*/ })
             {
                 Console.WriteLine("Ananymous object: " + land.Name + "\t - " + land.Capital);
+            }
+
+            //Exception on Class method
+            try
+            {
+                Country.MyMethod("En nu komt de fout - countryClassMethode");
+            }
+            catch (MyException e)
+            {
+                Console.WriteLine(e.Message + Environment.NewLine + "**********");
+            }
+
+            //Exception on instance method
+            try
+            {
+                Country c = new Country(9, "Blabla", "Dinges");
+                c.MyMethod("komt van countryInstanceMethode");
+            }
+            catch (MyException ee)
+            {
+                Console.WriteLine(ee.Message + Environment.NewLine + "**********");
             }
         }
     }
